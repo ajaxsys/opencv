@@ -7,17 +7,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="x64" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://D:/Open CV/opencv/build/java/opencv-330.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/opencv-331.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://D:/Open CV/opencv/build/java/opencv-330.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lib/opencv-331.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="x64" level="project" />
   </component>
 </module>

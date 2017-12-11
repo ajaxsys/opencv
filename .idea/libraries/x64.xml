@@ -3,7 +3,7 @@
     <CLASSES />
     <JAVADOC />
     <NATIVE>
-      <root url="file://D:/Open CV/opencv/build/java/x64" />
+      <root url="file://$PROJECT_DIR$/lib/x86" />
     </NATIVE>
     <SOURCES />
   </library>

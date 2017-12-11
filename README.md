@@ -7,16 +7,16 @@
 > * 扫描质量太差可能影响答案精度（未测）
 
 #### 准备工具
-> *  OpenCV 3.30
+> *  OpenCV 3.31
 > *  IntelliJ IDEA 2017.2.5 
 > *  JDK 1.8_151
 > *  A4公务员考试答题卡
 
 #### 环境配置
      1. 打开IDEA 选择 File -> Project Structure -> Modules -> Add -> JARs or directories
-     2. 选择 opencv 目录下的 build > java > opencv-330.jar
+     2. 选择 opencv 目录下的 build > java > opencv-331.jar
      3. File -> Project Structure -> Libraries -> New Project Library
-     4. 选择 opencv 目录下的 build > java > x64 > opencv_java330.dll
+     4. 选择 opencv 目录下的 build > java > x64 > opencv_java331.dll
  主要步骤
 ---
     1. 读取图片

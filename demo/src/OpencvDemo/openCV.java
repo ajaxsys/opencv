@@ -11,18 +11,18 @@ import static org.opencv.imgproc.Imgproc.MORPH_RECT;
 
 public class openCV {
     static {
-        //OpenCV -ver 3.30
+        //OpenCV -ver 3.31
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
     public static void main(String args[]) {
-        String sheet = "E:/picpool/A4.jpg";
-        String results = "E:/picpool/card/enresults.jpg";
+        String sheet = "./demo/images/A4.jpg";
+        String results = "./demo/images/result_Last.jpg";
         String msg = rowsAndCols(sheet, results);
         System.out.println(msg);
     }
 
-    private static void Canny(String oriImg) {
+    private static void canny(String oriImg) {
         //装载图片
         Mat img = Imgcodecs.imread(oriImg);
         Mat srcImage2 = new Mat();
@@ -42,12 +42,12 @@ public class openCV {
         //膨胀操作
         Imgproc.dilate(srcImage4, srcImage5, element);
         //输出第一批操作后的效果图 实际开发请省略掉
-        Imgcodecs.imwrite("E:/picpool/card/enresults.jpg", srcImage4);
+        Imgcodecs.imwrite("./demo/images/result_step1.jpg", srcImage4);
 
         //确定每张答题卡的ROI区域
         Mat imag_ch1 = srcImage4.submat(new Rect(200, 1065, 1930, 2210));
         //输出ROI区域图 实际开发请省略掉
-        Imgcodecs.imwrite("E:/picpool/card/imag_ch1.jpg", imag_ch1);
+        Imgcodecs.imwrite("./demo/images/result_step2_ROI.jpg", imag_ch1);
 
 
         //识别所有轮廓
@@ -78,7 +78,7 @@ public class openCV {
         }
 
         //输出画好外框的效果图
-        Imgcodecs.imwrite("E:/picpool/card/result.jpg", colorfulImage);
+        Imgcodecs.imwrite("./demo/images/result_step3_rect.jpg", colorfulImage);
 
 
         //new一个 map 用来存储答题卡上填的答案 (A/B/C/D)
@@ -162,9 +162,8 @@ public class openCV {
         }
 
         //最终识别出的题号和选项
-        Iterator iter = listenAnswer.entrySet().iterator();
-        while (iter.hasNext()) {
-            Map.Entry entry = (Map.Entry) iter.next();
+        for (Object o : listenAnswer.entrySet()) {
+            Map.Entry entry = (Map.Entry) o;
             Object key = entry.getKey();
             Object val = entry.getValue();
             System.out.println("第" + key + "题,选项:" + val);
@@ -175,7 +174,7 @@ public class openCV {
     private static String rowsAndCols(String oriImg, String dstImg) {
         String msg = "";
 
-        Canny(oriImg);
+        canny(oriImg);
 
         Mat mat = Imgcodecs.imread(dstImg);
         msg += "\n行数:" + mat.rows();
