@@ -15,10 +15,12 @@ public class openCV {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
+    static final String sheet = "./demo/images/A4.jpg";
+    static final String RESULTS = "./demo/images/result_step3_rect.jpg";
+
     public static void main(String args[]) {
-        String sheet = "./demo/images/A4.jpg";
-        String results = "./demo/images/result_Last.jpg";
-        String msg = rowsAndCols(sheet, results);
+
+        String msg = rowsAndCols(sheet);
         System.out.println(msg);
     }
 
@@ -171,12 +173,12 @@ public class openCV {
 
     }
 
-    private static String rowsAndCols(String oriImg, String dstImg) {
+    private static String rowsAndCols(String oriImg) {
         String msg = "";
 
         canny(oriImg);
 
-        Mat mat = Imgcodecs.imread(dstImg);
+        Mat mat = Imgcodecs.imread(RESULTS);
         msg += "\n行数:" + mat.rows();
         msg += "\n列数:" + mat.cols();
         msg += "\nheight:" + mat.height();
